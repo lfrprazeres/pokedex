@@ -4,8 +4,9 @@ import SearchIcon from "../../assets/images/icons/Search.svg";
 import Image from "../Image";
 
 function Search(props) {
+  const { className } = props;
   return (
-    <Container>
+    <Container className={className || ""}>
       <Image source={SearchIcon} size={12} />
       <Input
         type="text"

@@ -31,7 +31,7 @@ const initialState = {
       card: "#B5B9C4",
       icon: "#9DA0AA",
     },
-    eletric: {
+    electric: {
       card: "#F2CB55",
       icon: "#EED535",
     },
@@ -47,9 +47,38 @@ const initialState = {
       card: "#EB4971",
       icon: "#D04164",
     },
+    psychic: {
+      card: "#CE0D2C",
+      icon: "#EA5D60",
+    },
+    rock: {
+      card: "#4D443F",
+      icon: "#C8B686",
+    },
+    steel: {
+      card: "#9EA0AF",
+      icon: "#417D9A",
+    },
+    ice: {
+      card: "#99E3FC",
+      icon: "#61CEC0",
+    },
+    ghost: {
+      card: "#5959AE",
+      icon: "#556AAE",
+    },
+    dragon: {
+      card: "#4A446A",
+      icon: "#7038F8",
+    },
+    dark: {
+      card: "#6D5646",
+      icon: "#D80556",
+    },
   },
-  limit: 10,
+  limit: 20,
   offset: 0,
+  hasMore: true,
 };
 
 export const pokedexReducer = (state = initialState, { type, payload }) => {
@@ -57,7 +86,9 @@ export const pokedexReducer = (state = initialState, { type, payload }) => {
     case CATCHED_THEM_ALL: {
       return {
         ...state,
-        pokemons: payload,
+        pokemons: [...(state.pokemons || []), ...payload],
+        offset: state.offset + state.limit,
+        hasMore: state.offset + state.limit < 964,
       };
     }
     default:

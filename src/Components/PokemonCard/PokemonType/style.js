@@ -6,14 +6,14 @@ const Container = styled.div`
   display: flex;
   height: 12px;
   justify-content: flex-end;
-  margin-right: 3px;
+  margin-right: 5px;
   padding: 0 1px 0 2px;
   position: relative;
 `;
 
 const TypeIcon = styled.img`
   left: 2px;
-  width: 8px;
+  width: 7px;
 `;
 
 const Text = styled.p`
