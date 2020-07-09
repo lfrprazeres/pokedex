@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  margin: 16px 0 0 0;
+  margin: 17px 0 0 0;
+  width: 100%;
 `;
 
 const Title = styled.h3`
+  font-size: 16px;
   letter-spacing: 1px;
 `;
 
 const Description = styled.p`
-  font-size: 9.24px;
+  font-size: 8px;
   margin-top: 5px;
 `;
 

@@ -1,17 +1,28 @@
 import React from "react";
-import { HomeComponent } from "./style";
+import { HomeComponent, PokemonCards } from "./style";
 import Actions from "./Actions";
 import Header from "./Header";
-import { Search } from "../../Components";
+import { Search, PokemonCard } from "../../Components";
+import { connect } from "react-redux";
 
-function Home() {
+function Home(props) {
+  const { pokemons } = props;
   return (
     <HomeComponent>
       <Actions />
       <Header />
       <Search />
+      <PokemonCards>
+        {pokemons?.map((pokemon, index) => (
+          <PokemonCard key={index} data={pokemon} />
+        ))}
+      </PokemonCards>
     </HomeComponent>
   );
 }
 
-export default Home;
+const mapStateToProps = (state) => ({
+  pokemons: state.pokedex.pokemons,
+});
+
+export default connect(mapStateToProps, null)(Home);

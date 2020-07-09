@@ -6,7 +6,7 @@ const Container = styled.div`
 `;
 
 const Option = styled.button`
-  margin-left: 11px;
+  margin-left: 9px;
 `;
 
 export { Container, Option };

@@ -6,7 +6,11 @@ const HomeComponent = styled.div`
   background-repeat: no-repeat;
   background-size: 100% auto;
   height: 100vh;
-  padding: 22px;
+  padding: 20px;
 `;
 
-export { HomeComponent };
+const PokemonCards = styled.div`
+  margin-top: 22px;
+`;
+
+export { HomeComponent, PokemonCards };
