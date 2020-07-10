@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { HomeComponent, HomeSearch, PokemonCards } from "./style";
 import Actions from "./Actions";
 import Header from "./Header";
@@ -7,24 +7,36 @@ import { connect } from "react-redux";
 import { gottaCatchThemAll } from "../../actions/pokedex";
 
 function Home(props) {
-  const { pokemons, hasMore, limit, offset, catchMorePokemons } = props;
+  const { pokemons, hasMore, limit, offset, catchMorePokemons, filter } = props;
+  const [pokemonList, setPokemonList] = useState(null);
+
+  useEffect(() => {
+    if (filter !== "") {
+      let regex = new RegExp(filter.trim(), "i");
+      setPokemonList(pokemons.filter((data) => regex.test(data.pokemon.name)));
+    } else {
+      setPokemonList(pokemons);
+    }
+  }, [filter, pokemons]);
 
   function loadMoreItems() {
-    catchMorePokemons(limit, offset);
+    if (filter === "") {
+      catchMorePokemons(limit, offset);
+    }
   }
   return (
     <HomeComponent>
       <Actions />
       <Header />
       <HomeSearch />
-      {pokemons && (
+      {pokemonList && (
         <PokemonCards
           itemHeight={72}
-          items={pokemons}
+          items={pokemonList}
           hasMoreItems={hasMore}
           loadMoreItems={loadMoreItems}
         >
-          {pokemons?.map((pokemon, index) => (
+          {pokemonList?.map((pokemon, index) => (
             <PokemonCard key={index} data={pokemon} />
           ))}
         </PokemonCards>
@@ -38,6 +50,7 @@ const mapStateToProps = (state) => ({
   hasMore: state.pokedex.hasMore,
   limit: state.pokedex.limit,
   offset: state.pokedex.offset,
+  filter: state.pokedex.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({

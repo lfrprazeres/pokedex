@@ -43,3 +43,13 @@ export const gottaCatchThemAll = (limit, offset) => {
     },
   };
 };
+
+export const FILTER_POKEMONS_WITH_DEBOUNCE = `${standardStart}FILTER_POKEMONS_WITH_DEBOUNCE`;
+export const FILTER_POKEMONS = `${standardStart}FILTER_POKEMONS`;
+
+export const filterPokemons = (filter) => {
+  return {
+    type: FILTER_POKEMONS_WITH_DEBOUNCE,
+    payload: filter,
+  };
+};

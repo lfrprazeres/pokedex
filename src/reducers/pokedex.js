@@ -1,4 +1,4 @@
-import { CATCHED_THEM_ALL } from "../actions/pokedex";
+import { CATCHED_THEM_ALL, FILTER_POKEMONS } from "../actions/pokedex";
 
 const initialState = {
   pokemons: null,
@@ -79,6 +79,7 @@ const initialState = {
   limit: 20,
   offset: 0,
   hasMore: true,
+  filter: "",
 };
 
 export const pokedexReducer = (state = initialState, { type, payload }) => {
@@ -89,6 +90,12 @@ export const pokedexReducer = (state = initialState, { type, payload }) => {
         pokemons: [...(state.pokemons || []), ...payload],
         offset: state.offset + state.limit,
         hasMore: state.offset + state.limit < 964,
+      };
+    }
+    case FILTER_POKEMONS: {
+      return {
+        ...state,
+        filter: payload,
       };
     }
     default:

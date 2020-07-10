@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 import PokemonType from "./PokemonType";
 
 function PokemonCard(props) {
-  const { image, typeColors, data } = props;
+  const { typeColors, data } = props;
   const cardColor = typeColors[`${data.pokemon.types[0].type.name}`].card;
   function formatPokemonOrder(order) {
     let orderLength = JSON.stringify(order).length;
