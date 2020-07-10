@@ -10,6 +10,7 @@ import {
 } from "./style";
 import { PokemonInfo } from "../../Components";
 import axios from "axios";
+import PokemonDetails from "./PokemonDetails";
 
 function About(props) {
   const { location, pokemons, typeColors } = props;
@@ -56,6 +57,7 @@ function About(props) {
               <PokemonInfo pokemon={pokemon.pokemon} nameSize={"17px"} />
             </PokemonInfoContainer>
           </Header>
+          <PokemonDetails screenColor={screenColor} pokemon={pokemon.pokemon} />
         </Container>
       ) : (
         <Loading />

@@ -8,7 +8,6 @@ const Container = styled.div`
   background-position-x: 100%;
   background-position-y: 93px;
   background-size: 32px;
-  height: 100vh;
   overflow: hidden;
   position: relative;
   width: 100vw;
