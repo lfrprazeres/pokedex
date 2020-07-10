@@ -9,7 +9,7 @@ const PokemonOrder = styled.p`
 
 const PokemonName = styled.p`
   color: white;
-  font-size: 14px;
+  font-size: ${(props) => props.size || "14px"};
   font-weight: bold;
   margin-left: 1px;
   margin-top: -1px;

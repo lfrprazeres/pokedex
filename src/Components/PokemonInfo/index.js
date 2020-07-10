@@ -3,7 +3,7 @@ import { PokemonOrder, PokemonName, PokemonTypes } from "./style";
 import PokemonType from "./PokemonType";
 
 function PokemonInfo(props) {
-  const { pokemon } = props;
+  const { pokemon, nameSize } = props;
   function formatPokemonOrder(order) {
     let orderLength = JSON.stringify(order).length;
     switch (orderLength) {
@@ -18,7 +18,7 @@ function PokemonInfo(props) {
   return (
     <>
       <PokemonOrder>{formatPokemonOrder(pokemon.order)}</PokemonOrder>
-      <PokemonName>{pokemon.name}</PokemonName>
+      <PokemonName size={nameSize}>{pokemon.name}</PokemonName>
       <PokemonTypes>
         {pokemon.types.map((type, key) => {
           return <PokemonType data={type} key={key} />;

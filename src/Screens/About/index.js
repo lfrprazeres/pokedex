@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Loading } from "../../Components";
 import { connect } from "react-redux";
-import { Container, BackgroundName } from "./style";
+import {
+  Container,
+  BackgroundName,
+  Header,
+  PokemonImage,
+  PokemonIntoContainer,
+} from "./style";
+import { Image, PokemonInfo } from "../../Components";
 import axios from "axios";
 
 function About(props) {
@@ -43,6 +50,12 @@ function About(props) {
       {pokemon ? (
         <Container bg={screenColor}>
           <BackgroundName>{pokemon.pokemon.name}</BackgroundName>
+          <Header>
+            <PokemonImage source={pokemon.photo} size={55} />
+            <PokemonIntoContainer>
+              <PokemonInfo pokemon={pokemon.pokemon} nameSize={"17px"} />
+            </PokemonIntoContainer>
+          </Header>
         </Container>
       ) : (
         <Loading />
