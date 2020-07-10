@@ -3,6 +3,11 @@ import { Image } from "../../Components";
 
 const Container = styled.div`
   background-color: ${(props) => props.bg};
+  background-image: url(${require("../../assets/images/aboutBackground.png")});
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 93px;
+  background-size: 32px;
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -48,7 +53,7 @@ const PokemonImage = styled(Image)`
   background-repeat: no-repeat;
 `;
 
-const PokemonIntoContainer = styled.div`
+const PokemonInfoContainer = styled.div`
   padding: 6px 0 0 16px;
 `;
 
@@ -57,5 +62,5 @@ export {
   BackgroundName,
   Header,
   PokemonImage,
-  PokemonIntoContainer,
+  PokemonInfoContainer,
 };

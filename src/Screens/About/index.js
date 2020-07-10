@@ -6,9 +6,9 @@ import {
   BackgroundName,
   Header,
   PokemonImage,
-  PokemonIntoContainer,
+  PokemonInfoContainer,
 } from "./style";
-import { Image, PokemonInfo } from "../../Components";
+import { PokemonInfo } from "../../Components";
 import axios from "axios";
 
 function About(props) {
@@ -52,9 +52,9 @@ function About(props) {
           <BackgroundName>{pokemon.pokemon.name}</BackgroundName>
           <Header>
             <PokemonImage source={pokemon.photo} size={55} />
-            <PokemonIntoContainer>
+            <PokemonInfoContainer>
               <PokemonInfo pokemon={pokemon.pokemon} nameSize={"17px"} />
-            </PokemonIntoContainer>
+            </PokemonInfoContainer>
           </Header>
         </Container>
       ) : (
