@@ -1,4 +1,4 @@
 import Home from "./Home";
-import Profile from "./Profie";
+import About from "./About";
 
-export { Home, Profile };
+export { Home, About };

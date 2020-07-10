@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, TypeIcon, Text } from "./style";
+import { connect } from "react-redux";
 
 function PokemonType(props) {
   const { data, typeColors } = props;
@@ -15,4 +16,8 @@ function PokemonType(props) {
   );
 }
 
-export default PokemonType;
+const mapStateToProps = (state) => ({
+  typeColors: state.pokedex.types,
+});
+
+export default connect(mapStateToProps, null)(PokemonType);

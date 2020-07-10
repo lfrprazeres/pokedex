@@ -11,7 +11,7 @@ function Search(props) {
 
   useEffect(() => {
     filterPokemons(filter);
-  }, [filter]);
+  }, [filter, filterPokemons]);
 
   return (
     <Container className={className || ""}>

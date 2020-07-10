@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { HomeComponent, HomeSearch, PokemonCards } from "./style";
 import Actions from "./Actions";
 import Header from "./Header";
-import { PokemonCard } from "../../Components";
+import { PokemonCard, Loading } from "../../Components";
 import { connect } from "react-redux";
 import { gottaCatchThemAll } from "../../actions/pokedex";
 
@@ -25,23 +25,28 @@ function Home(props) {
     }
   }
   return (
-    <HomeComponent>
-      <Actions />
-      <Header />
-      <HomeSearch />
-      {pokemonList && (
-        <PokemonCards
-          itemHeight={72}
-          items={pokemonList}
-          hasMoreItems={hasMore}
-          loadMoreItems={loadMoreItems}
-        >
-          {pokemonList?.map((pokemon, index) => (
-            <PokemonCard key={index} data={pokemon} />
-          ))}
-        </PokemonCards>
+    <>
+      {pokemonList ? (
+        <HomeComponent>
+          <Actions />
+          <Header />
+          <HomeSearch />
+
+          <PokemonCards
+            itemHeight={72}
+            items={pokemonList}
+            hasMoreItems={hasMore}
+            loadMoreItems={loadMoreItems}
+          >
+            {pokemonList?.map((pokemon, index) => (
+              <PokemonCard key={index} data={pokemon} />
+            ))}
+          </PokemonCards>
+        </HomeComponent>
+      ) : (
+        <Loading />
       )}
-    </HomeComponent>
+    </>
   );
 }
 

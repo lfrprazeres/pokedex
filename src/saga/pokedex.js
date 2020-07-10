@@ -13,6 +13,6 @@ function* filterPokemonsSaga({ payload }) {
 
 export function* watchPokedex() {
   yield all([
-    yield debounce(1000, FILTER_POKEMONS_WITH_DEBOUNCE, filterPokemonsSaga),
+    yield debounce(500, FILTER_POKEMONS_WITH_DEBOUNCE, filterPokemonsSaga),
   ]);
 }

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Home, Profile } from "./Screens";
+import { Home, About } from "./Screens";
 import { connect } from "react-redux";
 import { gottaCatchThemAll } from "./actions/pokedex";
 
@@ -9,12 +9,12 @@ function Routes(props) {
 
   useEffect(() => {
     if (!pokemons) gottaCatchThemAll(limit, offset);
-  }, []);
+  }, [gottaCatchThemAll, limit, offset, pokemons]);
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/profile/:id" component={Profile} />
+        <Route exact path="/about/:id" component={About} />
       </Switch>
     </Router>
   );

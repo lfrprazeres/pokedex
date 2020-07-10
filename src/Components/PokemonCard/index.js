@@ -1,37 +1,19 @@
 import React from "react";
-import {
-  Container,
-  PokemonOrder,
-  PokemonName,
-  PokemonTypes,
-  PokemonImage,
-} from "./style";
+import { Container, PokemonImage } from "./style";
 import { connect } from "react-redux";
-import PokemonType from "./PokemonType";
+import { useHistory } from "react-router-dom";
+import PokemonInfo from "../PokemonInfo";
 
 function PokemonCard(props) {
   const { typeColors, data } = props;
+  const history = useHistory();
   const cardColor = typeColors[`${data.pokemon.types[0].type.name}`].card;
-  function formatPokemonOrder(order) {
-    let orderLength = JSON.stringify(order).length;
-    switch (orderLength) {
-      case 1:
-        return `#00${order}`;
-      case 2:
-        return `#0${order}`;
-      default:
-        return `#${order}`;
-    }
-  }
   return (
-    <Container bg={cardColor}>
-      <PokemonOrder>{formatPokemonOrder(data.pokemon.order)}</PokemonOrder>
-      <PokemonName>{data.pokemon.name}</PokemonName>
-      <PokemonTypes>
-        {data.pokemon.types.map((type, key) => {
-          return <PokemonType typeColors={typeColors} data={type} key={key} />;
-        })}
-      </PokemonTypes>
+    <Container
+      bg={cardColor}
+      onClick={() => history.push(`/about/${data.pokemon.name}`)}
+    >
+      <PokemonInfo pokemon={data.pokemon} />
       <PokemonImage source={data.photo} size={59} />
     </Container>
   );
