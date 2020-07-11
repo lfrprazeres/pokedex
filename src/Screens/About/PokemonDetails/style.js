@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Image } from "../../../Components";
 
 const Container = styled.div`
-  height: 100%;
   margin-top: 23px;
 `;
 

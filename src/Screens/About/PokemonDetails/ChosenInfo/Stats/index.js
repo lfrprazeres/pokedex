@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import getStatsMinMax from "./utils/getStatsMinMax";
 import formatStatName from "./utils/formatStatName";
 import getStatsTotal from "./utils/getStatsTotal";
@@ -21,46 +21,9 @@ import {
   EffectivenessType,
   EffectivenessDamage,
 } from "./style";
-import axios from "axios";
 
 function Stats(props) {
-  const { screenColor, pokemon } = props;
-  const [types, setTypes] = useState({
-    normal: "",
-    fire: "",
-    water: "",
-    electric: "",
-    grass: "",
-    ice: "",
-    fighting: "",
-    poison: "",
-    ground: "",
-    flying: "",
-    psychic: "",
-    bug: "",
-    rock: "",
-    ghost: "",
-    dragon: "",
-    dark: "",
-    steel: "",
-    fairy: "",
-  });
-  useEffect(() => {
-    axios
-      .get(`http://pokeapi.co/api/v2/type/${pokemon.types[0].type.name}/`)
-      .then((effect) => {
-        console.log("effect: ", effect.data);
-        let damages = effect.data.damage_relations;
-        let typesDamage = {};
-        damages.half_damage_from.map(
-          (half) => (typesDamage[half.name] = "half")
-        );
-        damages.double_damage_from.map((double) => {
-          typesDamage[double.name] = "2";
-        });
-        setTypes({ ...types, ...typesDamage });
-      });
-  }, []);
+  const { screenColor, pokemon, stats } = props;
 
   function showDamage(type) {
     if (type === "half") {
@@ -71,7 +34,7 @@ function Stats(props) {
           style={{ width: 8 }}
         />
       );
-    } else {
+    } else if (type === "2") {
       return type;
     }
   }
@@ -112,12 +75,12 @@ function Stats(props) {
         <span style={{ textTransform: "capitalize" }}>{pokemon.name}</span>
       </EffectivenessText>
       <EffectivenessContainer>
-        {Object.keys(types).map((type, key) => {
+        {Object.keys(stats).map((type, key) => {
           return (
             <EffectivenessContent key={key}>
               <EffectivenessType type={type} />
               <EffectivenessDamage>
-                {showDamage(types[type])}
+                {showDamage(stats[type])}
               </EffectivenessDamage>
             </EffectivenessContent>
           );

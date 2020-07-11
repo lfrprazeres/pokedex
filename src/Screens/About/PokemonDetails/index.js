@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 function PokemonDetails(props) {
   const { pokemon, screenColor } = props;
-  const [highlight, setHighlight] = useState("Stats");
+  const [highlight, setHighlight] = useState("About");
   const infos = ["About", "Stats", "Evolution"];
   const history = useHistory();
   return (

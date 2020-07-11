@@ -8,7 +8,7 @@ function Type(props) {
   return (
     <Container className={className} bg={colorTypes[type].icon}>
       <Image
-        size={8}
+        size={7}
         source={require(`../../assets/images/icons/pokemonTypes/${type}.svg`)}
       />
     </Container>

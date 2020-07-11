@@ -7,7 +7,7 @@ const Container = styled.div`
   display: flex;
   height: 12px;
   justify-content: center;
-  width: 12px;
+  width: 13px;
 `;
 
 export { Container };

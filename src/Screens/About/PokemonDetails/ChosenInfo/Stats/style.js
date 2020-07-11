@@ -95,7 +95,7 @@ const EffectivenessContainer = styled.div`
 `;
 
 const EffectivenessContent = styled.div`
-  margin: 0 6px 10px 0;
+  margin: 0 5px 10px 0;
 `;
 
 const EffectivenessType = styled(Type)``;
