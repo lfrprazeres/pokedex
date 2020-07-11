@@ -89,6 +89,33 @@ function About(props) {
   function getGender() {
     if (about) {
       switch (about.genderType) {
+        case 2: {
+          return (
+            <Gender>
+              <Male>♀ 75% </Male>, <Female> ♂ 25%</Female>
+            </Gender>
+          );
+        }
+        case 6: {
+          return <Gender> Unbreedable: Cannot breed</Gender>;
+        }
+        case undefined: {
+          return <Gender> Genderless and cannot breed </Gender>;
+        }
+        case 7: {
+          return (
+            <Gender>
+              <Male>♀ 12.5%</Male>, <Female> ♂ 87.5%</Female>
+            </Gender>
+          );
+        }
+        case 8: {
+          return (
+            <Gender>
+              <Female> Female Only </Female>
+            </Gender>
+          );
+        }
         default: {
           return (
             <Gender>

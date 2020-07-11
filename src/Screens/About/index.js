@@ -17,7 +17,7 @@ function About(props) {
   const [pokemon, setPokemon] = useState(null);
   const [screenColor, setScreenColor] = useState("");
   const paths = location.pathname.split("/");
-  const pokemonName = paths[paths.length - 1];
+  const pokemonName = paths[paths.length - 1].toLowerCase();
 
   useEffect(() => {
     if (pokemons) {
