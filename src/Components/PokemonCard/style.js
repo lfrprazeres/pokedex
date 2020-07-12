@@ -7,6 +7,7 @@ const Container = styled.button`
   background-image: url(${CardBackground});
   background-repeat: no-repeat;
   background-size: 100% auto;
+  cursor: pointer;
   border-radius: 6px;
   height: 58px;
   margin-bottom: 15px;

@@ -53,3 +53,35 @@ export const filterPokemons = (filter) => {
     payload: filter,
   };
 };
+
+export const SORT_LIST = `${standardStart}SORT_LIST`;
+
+export const sortList = (option, pokemons) => {
+  let newList;
+  switch (option) {
+    case "highest": {
+      newList = pokemons.sort((a, b) => b.pokemon.id - a.pokemon.id);
+      break;
+    }
+    case "a-z": {
+      newList = pokemons.sort((a, b) =>
+        b.pokemon.name > a.pokemon.name ? -1 : 1
+      );
+      break;
+    }
+    case "z-a": {
+      newList = pokemons.sort((a, b) =>
+        b.pokemon.name > a.pokemon.name ? 1 : -1
+      );
+      break;
+    }
+    default: {
+      newList = pokemons.sort((a, b) => a.pokemon.id - b.pokemon.id);
+      break;
+    }
+  }
+  return {
+    type: SORT_LIST,
+    payload: { option, pokemons: newList },
+  };
+};

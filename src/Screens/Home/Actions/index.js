@@ -5,17 +5,18 @@ import Generation from "../../../assets/images/icons/Generation.svg";
 import { Container, Option } from "./style";
 import { Image } from "../../../Components";
 
-export default function Actions() {
+export default function Actions(props) {
+  const { setModalOption } = props;
   const iconSize = 13;
   return (
     <Container>
-      <Option onClick={() => alert("generation")}>
+      <Option onClick={() => setModalOption("generation")}>
         <Image source={Generation} alt="generation" size={iconSize} />
       </Option>
-      <Option onClick={() => alert("sort")}>
+      <Option onClick={() => setModalOption("sort")}>
         <Image source={Sort} alt="sort" size={iconSize} />
       </Option>
-      <Option onClick={() => alert("filter")}>
+      <Option onClick={() => setModalOption("filter")}>
         <Image source={Filter} alt="filter" size={iconSize} />
       </Option>
     </Container>

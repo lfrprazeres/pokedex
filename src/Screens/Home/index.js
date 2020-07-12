@@ -5,10 +5,21 @@ import Header from "./Header";
 import { PokemonCard, Loading } from "../../Components";
 import { connect } from "react-redux";
 import { gottaCatchThemAll } from "../../actions/pokedex";
+import OptionsModal from "./OptionsModal";
 
 function Home(props) {
-  const { pokemons, hasMore, limit, offset, catchMorePokemons, filter } = props;
+  const {
+    pokemons,
+    hasMore,
+    limit,
+    offset,
+    catchMorePokemons,
+    filter,
+    sort,
+  } = props;
   const [pokemonList, setPokemonList] = useState(null);
+  const [modalOption, setModalOption] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (filter !== "") {
@@ -19,16 +30,48 @@ function Home(props) {
     }
   }, [filter, pokemons]);
 
+  useEffect(() => {
+    if (pokemonList) {
+      switch (sort) {
+        case "highest": {
+          let newList = pokemonList.sort((a, b) => b.pokemon.id - a.pokemon.id);
+          setPokemonList(newList);
+          break;
+        }
+        case "a-z": {
+          let newList = pokemonList.sort((a, b) =>
+            b.pokemon.name > a.pokemon.name ? -1 : 1
+          );
+          setPokemonList(newList);
+          break;
+        }
+        case "z-a": {
+          let newList = pokemonList.sort((a, b) =>
+            b.pokemon.name > a.pokemon.name ? 1 : -1
+          );
+          setPokemonList(newList);
+          break;
+        }
+        default: {
+          let newList = pokemonList.sort((a, b) => a.pokemon.id - b.pokemon.id);
+          setPokemonList(newList);
+          break;
+        }
+      }
+    }
+  }, [sort, pokemonList]);
+
   function loadMoreItems() {
     if (filter === "") {
       catchMorePokemons(limit, offset);
     }
   }
+
   return (
     <>
       {pokemonList ? (
         <HomeComponent>
-          <Actions />
+          <Actions setModalOption={setModalOption} />
           <Header />
           <HomeSearch />
 
@@ -38,14 +81,16 @@ function Home(props) {
             hasMoreItems={hasMore}
             loadMoreItems={loadMoreItems}
           >
-            {pokemonList?.map((pokemon, index) => (
-              <PokemonCard key={index} data={pokemon} />
-            ))}
+            {!loading &&
+              pokemonList?.map((pokemon, index) => (
+                <PokemonCard key={index} data={pokemon} />
+              ))}
           </PokemonCards>
         </HomeComponent>
       ) : (
         <Loading />
       )}
+      <OptionsModal setModalOption={setModalOption} modalOption={modalOption} />
     </>
   );
 }
@@ -56,6 +101,7 @@ const mapStateToProps = (state) => ({
   limit: state.pokedex.limit,
   offset: state.pokedex.offset,
   filter: state.pokedex.filter,
+  sort: state.pokedex.sort,
 });
 
 const mapDispatchToProps = (dispatch) => ({

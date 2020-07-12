@@ -1,4 +1,8 @@
-import { CATCHED_THEM_ALL, FILTER_POKEMONS } from "../actions/pokedex";
+import {
+  CATCHED_THEM_ALL,
+  FILTER_POKEMONS,
+  SORT_LIST,
+} from "../actions/pokedex";
 
 const initialState = {
   pokemons: null,
@@ -80,6 +84,7 @@ const initialState = {
   offset: 0,
   hasMore: true,
   filter: "",
+  sort: "smallest",
 };
 
 export const pokedexReducer = (state = initialState, { type, payload }) => {
@@ -96,6 +101,13 @@ export const pokedexReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         filter: payload,
+      };
+    }
+    case SORT_LIST: {
+      return {
+        ...state,
+        sort: payload.option,
+        pokemons: payload.pokemons,
       };
     }
     default:

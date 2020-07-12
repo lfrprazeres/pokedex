@@ -6,6 +6,7 @@ const Container = styled.div`
 `;
 
 const Option = styled.button`
+  cursor: pointer;
   margin-left: 9px;
 `;
 
