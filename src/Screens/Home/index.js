@@ -6,6 +6,7 @@ import { PokemonCard, Loading } from "../../Components";
 import { connect } from "react-redux";
 import { gottaCatchThemAll } from "../../actions/pokedex";
 import OptionsModal from "./OptionsModal";
+import setAdvancedFilter from "./utils/setAdvancedFilter";
 
 function Home(props) {
   const {
@@ -17,6 +18,7 @@ function Home(props) {
     filter,
     sort,
     useInfiniteLoading,
+    advancedFilter,
   } = props;
   const [pokemonList, setPokemonList] = useState(null);
   const [modalOption, setModalOption] = useState(false);
@@ -61,7 +63,15 @@ function Home(props) {
     }
   }, [sort, pokemonList]);
 
+  useEffect(() => {
+    if (pokemonList) {
+      setAdvancedFilter(pokemons, setPokemonList, advancedFilter);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [advancedFilter]);
+
   function loadMoreItems() {
+    console.log("load more");
     if (filter === "" && useInfiniteLoading) {
       catchMorePokemons(limit, offset);
     }
@@ -89,7 +99,11 @@ function Home(props) {
       ) : (
         <Loading />
       )}
-      <OptionsModal setModalOption={setModalOption} modalOption={modalOption} />
+      <OptionsModal
+        pokemonList={pokemonList}
+        setModalOption={setModalOption}
+        modalOption={modalOption}
+      />
     </>
   );
 }
@@ -102,6 +116,7 @@ const mapStateToProps = (state) => ({
   filter: state.pokedex.filter,
   sort: state.pokedex.sort,
   useInfiniteLoading: state.pokedex.useInfiniteLoading,
+  advancedFilter: state.pokedex.advancedFilter,
 });
 
 const mapDispatchToProps = (dispatch) => ({

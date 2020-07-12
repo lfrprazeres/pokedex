@@ -12,7 +12,7 @@ const Generation = styled.button`
   background-color: ${(props) => (props.active ? "#ea5d60" : "#F2f2f2")};
   border-radius: 7px;
   box-shadow: ${(props) =>
-    props.active && "0px 10px 20px rgba(208, 65, 100, 0.3)"};
+    props.active && "0px 10px 20px rgba(234, 93, 96, 0.3)"};
   display: flex;
   flex-direction: column;
   height: 66px;

@@ -6,6 +6,9 @@ const ModalContainer = styled.div`
   border-top-right-radius: 13px;
   bottom: ${(props) => (props.modalOption !== false ? "0" : "-56vh")};
   min-height: 56vh;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
   padding: 14px 19px 14px 20px;
   position: fixed;
   transition: 0.5s ease-in-out;

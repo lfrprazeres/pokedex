@@ -4,8 +4,17 @@ import {
   SORT_LIST,
   CHANGE_GENERATION,
   CHANGE_POKEMON_LIST,
-  CHANGE_INFINITE_LOADING,
+  RESET_ADVANCED_FILTERS,
+  CHANGE_ADVANCED_FILTERS,
 } from "../actions/pokedex";
+
+const defaultAdvancedFilter = {
+  types: [],
+  weaknesses: [],
+  heights: [],
+  weights: [],
+  range: [1, 1],
+};
 
 const initialState = {
   pokemons: null,
@@ -23,7 +32,7 @@ const initialState = {
       icon: "#FD7D24",
     },
     flying: {
-      card: "#ff0000",
+      card: "#829fE5",
       icon: "#748FC9",
     },
     water: {
@@ -60,7 +69,7 @@ const initialState = {
     },
     rock: {
       card: "#4D443F",
-      icon: "#C8B686",
+      icon: "#BAAB82",
     },
     steel: {
       card: "#9EA0AF",
@@ -76,11 +85,11 @@ const initialState = {
     },
     dragon: {
       card: "#4A446A",
-      icon: "#7038F8",
+      icon: "#0F6AC0",
     },
     dark: {
       card: "#6D5646",
-      icon: "#D80556",
+      icon: "#58575F",
     },
   },
   limit: 20,
@@ -90,6 +99,7 @@ const initialState = {
   filter: "",
   sort: "smallest",
   generation: "",
+  advancedFilter: defaultAdvancedFilter,
 };
 
 export const pokedexReducer = (state = initialState, { type, payload }) => {
@@ -100,6 +110,13 @@ export const pokedexReducer = (state = initialState, { type, payload }) => {
         pokemons: [...(state.pokemons || []), ...payload],
         offset: state.offset + state.limit,
         hasMore: state.offset + state.limit < 964,
+        advancedFilter: {
+          ...state.advancedFilter,
+          range: [
+            state.advancedFilter.range[0],
+            (state.pokemons?.length || 0) + payload.length,
+          ],
+        },
       };
     }
     case FILTER_POKEMONS: {
@@ -128,6 +145,22 @@ export const pokedexReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         pokemons: payload.pokemons,
+        advancedFilter: {
+          ...state.advancedFilter,
+          range: [state.advancedFilter.range[0], payload.pokemons.length],
+        },
+      };
+    }
+    case RESET_ADVANCED_FILTERS: {
+      return {
+        ...state,
+        advancedFilter: { ...defaultAdvancedFilter, range: [1, payload] },
+      };
+    }
+    case CHANGE_ADVANCED_FILTERS: {
+      return {
+        ...state,
+        advancedFilter: payload,
       };
     }
     default:

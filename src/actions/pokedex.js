@@ -95,3 +95,21 @@ export const changeGeneration = (generation) => {
     payload: { generation },
   };
 };
+
+export const CHANGE_ADVANCED_FILTERS = `${standardStart}CHANGE_ADVANCED_FILTERS`;
+
+export const changeAdvancedFilters = (advancedFilters) => {
+  return {
+    type: CHANGE_ADVANCED_FILTERS,
+    payload: advancedFilters,
+  };
+};
+
+export const RESET_ADVANCED_FILTERS = `${standardStart}RESET_ADVANCED_FILTERS`;
+
+export const resetAdvancedFilters = (range) => {
+  return {
+    type: RESET_ADVANCED_FILTERS,
+    payload: range,
+  };
+};
