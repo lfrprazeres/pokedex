@@ -2,6 +2,9 @@ import {
   CATCHED_THEM_ALL,
   FILTER_POKEMONS,
   SORT_LIST,
+  CHANGE_GENERATION,
+  CHANGE_POKEMON_LIST,
+  CHANGE_INFINITE_LOADING,
 } from "../actions/pokedex";
 
 const initialState = {
@@ -83,8 +86,10 @@ const initialState = {
   limit: 20,
   offset: 0,
   hasMore: true,
+  useInfiniteLoading: true,
   filter: "",
   sort: "smallest",
+  generation: "",
 };
 
 export const pokedexReducer = (state = initialState, { type, payload }) => {
@@ -107,6 +112,21 @@ export const pokedexReducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         sort: payload.option,
+        pokemons: payload.pokemons,
+      };
+    }
+    case CHANGE_GENERATION: {
+      return {
+        ...state,
+        generation: payload.generation,
+        pokemons: payload.pokemons || [],
+        useInfiniteLoading: payload.generation === "",
+        offset: 0,
+      };
+    }
+    case CHANGE_POKEMON_LIST: {
+      return {
+        ...state,
         pokemons: payload.pokemons,
       };
     }

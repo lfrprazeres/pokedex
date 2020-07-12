@@ -9,6 +9,7 @@ const Container = styled.div`
   top: 0;
   visibility: ${(props) => (props.visible ? "visible" : "hidden")};
   width: 100vw;
+  z-index: 3;
 `;
 
 export { Container };

@@ -2,6 +2,7 @@ import React from "react";
 import { Modal } from "../../../Components";
 import { ModalContainer } from "./style";
 import Sort from "./Sort";
+import Generations from "./Generations";
 
 export default function OptionsModal(props) {
   const { modalOption, setModalOption } = props;
@@ -9,6 +10,9 @@ export default function OptionsModal(props) {
     switch (modalOption) {
       case "sort": {
         return <Sort setModalOption={setModalOption} />;
+      }
+      case "generation": {
+        return <Generations setModalOption={setModalOption} />;
       }
       default:
         return null;

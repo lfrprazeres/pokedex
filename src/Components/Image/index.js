@@ -8,7 +8,7 @@ export default function Image(props) {
       style={{ width: size, display: "flex", alignItems: "center" }}
       className={className}
     >
-      <img src={source} alt={alt} style={{ width: "100%", zIndex: 999 }} />
+      <img src={source} alt={alt} style={{ width: "100%", zIndex: 2 }} />
     </div>
   );
 }

@@ -6,6 +6,7 @@ const standardStart = "POKEDEX::";
 export const GOTTA_CATCH_THEM_ALL = `${standardStart}GOTTA_CATCH_THEM_ALL`;
 export const CATCHED_THEM_ALL = `${standardStart}CATCHED_THEM_ALL`;
 export const NOT_CATCHED_THEM_ALL = `${standardStart}NOT_CATCHED_THEM_ALL`;
+export const CHANGE_POKEMON_LIST = `${standardStart}CHANGE_POKEMON_LIST`;
 
 export const gottaCatchThemAll = (limit, offset) => {
   return {
@@ -83,5 +84,14 @@ export const sortList = (option, pokemons) => {
   return {
     type: SORT_LIST,
     payload: { option, pokemons: newList },
+  };
+};
+
+export const CHANGE_GENERATION = `${standardStart}CHANGE_GENERATION`;
+
+export const changeGeneration = (generation) => {
+  return {
+    type: CHANGE_GENERATION,
+    payload: { generation },
   };
 };

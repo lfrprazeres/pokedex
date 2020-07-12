@@ -16,10 +16,10 @@ function Home(props) {
     catchMorePokemons,
     filter,
     sort,
+    useInfiniteLoading,
   } = props;
   const [pokemonList, setPokemonList] = useState(null);
   const [modalOption, setModalOption] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (filter !== "") {
@@ -62,14 +62,14 @@ function Home(props) {
   }, [sort, pokemonList]);
 
   function loadMoreItems() {
-    if (filter === "") {
+    if (filter === "" && useInfiniteLoading) {
       catchMorePokemons(limit, offset);
     }
   }
 
   return (
     <>
-      {pokemonList ? (
+      {pokemonList && pokemons.length > 0 ? (
         <HomeComponent>
           <Actions setModalOption={setModalOption} />
           <Header />
@@ -81,10 +81,9 @@ function Home(props) {
             hasMoreItems={hasMore}
             loadMoreItems={loadMoreItems}
           >
-            {!loading &&
-              pokemonList?.map((pokemon, index) => (
-                <PokemonCard key={index} data={pokemon} />
-              ))}
+            {pokemonList?.map((pokemon, index) => (
+              <PokemonCard key={index} data={pokemon} />
+            ))}
           </PokemonCards>
         </HomeComponent>
       ) : (
@@ -102,6 +101,7 @@ const mapStateToProps = (state) => ({
   offset: state.pokedex.offset,
   filter: state.pokedex.filter,
   sort: state.pokedex.sort,
+  useInfiniteLoading: state.pokedex.useInfiniteLoading,
 });
 
 const mapDispatchToProps = (dispatch) => ({

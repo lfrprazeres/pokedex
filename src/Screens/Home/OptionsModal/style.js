@@ -5,6 +5,7 @@ const ModalContainer = styled.div`
   border-top-left-radius: 13px;
   border-top-right-radius: 13px;
   bottom: ${(props) => (props.modalOption !== false ? "0" : "-56vh")};
+  min-height: 56vh;
   padding: 14px 19px 14px 20px;
   position: fixed;
   transition: 0.5s ease-in-out;
