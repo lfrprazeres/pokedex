@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import Stats from "./Stats";
 import About from "./About";
 import getData from "./utils/getData";
+import Evolution from "./Evolution";
 
 function ChosenInfo(props) {
   const { info, screenColor, pokemon } = props;
   const [about, setAbout] = useState(null);
+  const [evolutionChain, setEvolutionChain] = useState(null);
+  const [evolutions, setEvolutions] = useState(null);
   const [stats, setStats] = useState({
     normal: "",
     fire: "",
@@ -34,9 +37,21 @@ function ChosenInfo(props) {
       getData.getStats(pokemon, stats, setStats);
     }
     if (info === "About") {
-      if (!about) getData.getAbout(pokemon, about, setAbout);
+      if (!about)
+        getData.getAbout(
+          pokemon,
+          about,
+          setAbout,
+          evolutionChain,
+          setEvolutionChain
+        );
+    } else if (info === "Evolution") {
+      if (!evolutions && evolutionChain) {
+        getData.getEvolution(evolutionChain, setEvolutions);
+      }
     }
-  }, [about, info, pokemon, stats]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [info]);
 
   switch (info) {
     case "About": {
@@ -55,7 +70,7 @@ function ChosenInfo(props) {
       );
     }
     case "Evolution": {
-      return <div> Evolution </div>;
+      return <Evolution screenColor={screenColor} evolutions={evolutions} />;
     }
     default:
       return null;
