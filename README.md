@@ -1,5 +1,7 @@
 # Pokedex
 
+[Demo](https://lfrprazeres.github.io/pokedex/)
+
 ## To execute the dev environment properly you need to:
 
 ```
