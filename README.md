@@ -1,68 +1,94 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pokedex
 
-## Available Scripts
+## To execute the dev environment properly you need to:
 
-In the project directory, you can run:
+```
+1. clone this repository
+2. enter in the pokedex directory
+3. run yarn or npm install
+4. run yarn start or npm start
+5. open your favourite browser and acces http://localhost:3000 and get ready to catch your pokemons!
+```
 
-### `yarn start`
+> FYI I used Redux Devtools in the project, so if you want to see the redux more easily you can install [Redux Devtools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd?hl=pt-BR) extension on Chrome, and see accessing F12 > Redux, see how it works in the [github documentation](https://github.com/zalmoxisus/redux-devtools-extension)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+to run the test, just type `yarn test` or `npm run test` or simply `jest` to run JEST.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+to run storybook, type `yarn storybook` or `npm run storybook` and access http://localhost:63064 to see it!
 
-### `yarn test`
+## I organized the code like:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Redux folders
 
-### `yarn build`
+    * ./src/actions
+        - the actions filenames was built to show the right actions based on it reducers, for example, the file pokedex.js contains all the pokedex's reducer actions.
+    * ./src/reducers
+        - the reducers filenames was build to show the right reducers based on it store, for example, the file pokedex.js contains all the pokedex's store manipulation.
+    * ./src/saga
+        - the saga filenames was build to show the right saga based on it actions/reducers, for example, the file pokedex.js contains all the pokedex's watchers.
+    * ./src/store
+        - the file index.js has all the configuration about saga, redux-api-middleware and redux-devtools-extension.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### routes
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    *./src/routes.js
+        - Here has all the routes of the application;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### assets (static files)
 
-### `yarn eject`
+    * ./src/assets/*
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### the app core itself
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    * ./src/Screens
+        - It has the app screens, rendered in the routes.js file, which has the react-router-dom configuration.
+        - The name of the screens is based on the Figma(https://www.figma.com/file/THLxZSlOoUYMZrjFg0Kl1M/Pok%C3%A9dex?node-id=0%3A1) names, to be easier to found the right code to the right screen.
+    * ./src/Components
+        - It Has the components that screens use.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### util functions
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    * ./src/storybook
+        - It has all the content about the storybook configuration, filenames based on the rules above.
 
-## Learn More
+### about all these files, you can import default exports accessing the right folder, or import it just accessing the main folder, for example:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    - import Home from './src/containers/Home';
+    - import { Home } from './src/containers';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### About all the pokemons information, I needed to search a bit in bulbapedia and in other libraries to catch and show the data correctly, about the images, the pokeapi doesn't have this one, so I needed to search on https://pokeres.bastionbot.org/images/pokemon API.
 
-### Code Splitting
+## Techs used:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### Main libraries
 
-### Analyzing the Bundle Size
+- React;
+- React Router;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Storage
 
-### Making a Progressive Web App
+- Redux;
+- Redux Saga;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Fetch
 
-### Advanced Configuration
+- Axios
+- Redux API Middleware
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Styling
 
-### Deployment
+- Material-ui (core/styles);
+- Styled Components;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+### Test
 
-### `yarn build` fails to minify
+- Jest;
+- Enzyme;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### Documentation
+
+- Storybook
+
+### Others
+
+- React Simple Infinite Loading
