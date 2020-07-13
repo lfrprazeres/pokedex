@@ -11,7 +11,7 @@ function PokemonDetails(props) {
   return (
     <Container>
       <BackIcon
-        onClick={() => history.push("/")}
+        onClick={() => history.push("/pokedex")}
         size={"10px"}
         source={require("../../../assets/images/icons/back.svg")}
       />

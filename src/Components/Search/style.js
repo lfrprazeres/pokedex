@@ -20,7 +20,9 @@ const Input = styled.input`
 `;
 
 const SearchIconComponent = styled(Image)`
-  width: 20px;
+  @media (min-width: 768px) {
+    width: 20px;
+  }
 `;
 
 export { Container, Input, SearchIconComponent };

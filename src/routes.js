@@ -24,8 +24,8 @@ function Routes(props) {
         </MuiAlert>
       </Snackbar>
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/about/:id" component={About} />
+        <Route exact path="/pokedex" component={Home} />
+        <Route exact path="/pokedex/about/:id" component={About} />
       </Switch>
     </Router>
   );
