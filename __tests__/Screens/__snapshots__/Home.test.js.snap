@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rendering Home 1`] = `
+Array [
+  <div
+    className="sc-fznyAO vZIGY"
+  >
+    <div
+      className="sc-AxjAm dFYpwF sc-fznKkj fvgEGZ"
+      size="100%"
+    >
+      <img
+        src={
+          Object {
+            "process": [Function],
+          }
+        }
+        style={
+          Object {
+            "width": "100%",
+            "zIndex": 2,
+          }
+        }
+      />
+    </div>
+  </div>,
+  <div
+    className="sc-fzokOt fCyYDE"
+  >
+    <div
+      className="sc-fzoiQi dAGsKk"
+    />
+  </div>,
+]
+`;

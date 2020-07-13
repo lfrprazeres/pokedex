@@ -8,7 +8,7 @@ import {
   CHANGE_ADVANCED_FILTERS,
 } from "../actions/pokedex";
 
-const defaultAdvancedFilter = {
+export const defaultAdvancedFilter = {
   types: [],
   weaknesses: [],
   heights: [],
@@ -16,7 +16,7 @@ const defaultAdvancedFilter = {
   range: [1, 1],
 };
 
-const initialState = {
+export const initialState = {
   pokemons: null,
   types: {
     grass: {
