@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Container, Input } from "./style";
+import { Container, Input, SearchIconComponent } from "./style";
 import SearchIcon from "../../assets/images/icons/Search.svg";
-import Image from "../Image";
 import { connect } from "react-redux";
 import { filterPokemons } from "../../actions/pokedex";
 
@@ -15,7 +14,7 @@ function Search(props) {
 
   return (
     <Container className={className || ""}>
-      <Image source={SearchIcon} size={12} />
+      <SearchIconComponent source={SearchIcon} size={"12px"} />
       <Input
         type="text"
         value={filter}

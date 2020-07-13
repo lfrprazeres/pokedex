@@ -15,6 +15,10 @@ const Option = styled.button`
   height: 29px;
   margin-bottom: 11px;
   width: 100%;
+  @media (min-width: 768px) {
+    font-size: 16px;
+    height: 45px;
+  }
 `;
 
 export { Options, Option };

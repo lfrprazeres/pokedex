@@ -52,9 +52,9 @@ function About(props) {
         <Container bg={screenColor}>
           <BackgroundName>{pokemon.pokemon.name}</BackgroundName>
           <Header>
-            <PokemonImage source={pokemon.photo} size={55} />
+            <PokemonImage source={pokemon.photo} size={"55px"} />
             <PokemonInfoContainer>
-              <PokemonInfo pokemon={pokemon.pokemon} nameSize={"17px"} />
+              <PokemonInfo pokemon={pokemon.pokemon} />
             </PokemonInfoContainer>
           </Header>
           <PokemonDetails screenColor={screenColor} pokemon={pokemon.pokemon} />

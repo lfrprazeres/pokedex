@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "../Image";
 
 const Container = styled.div`
   background-color: #f2f2f2;
@@ -13,9 +14,13 @@ const Input = styled.input`
   font-size: 7.3px;
   margin-left: 4px;
   width: 85%;
-  &::-placeholder {
-    color: "red";
+  @media (min-width: 768px) {
+    font-size: 18px;
   }
 `;
 
-export { Container, Input };
+const SearchIconComponent = styled(Image)`
+  width: 20px;
+`;
+
+export { Container, Input, SearchIconComponent };

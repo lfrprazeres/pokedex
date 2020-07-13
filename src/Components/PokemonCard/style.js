@@ -15,12 +15,20 @@ const Container = styled.button`
   position: relative;
   text-align: initial;
   width: 100%;
+  @media (min-width: 768px) {
+    height: 65px;
+    background-size: 60% auto;
+    background-position-x: 100%;
+  }
 `;
 
 const PokemonImage = styled(Image)`
   position: absolute;
   right: 8px;
   top: -10px;
+  @media (min-width: 768px) {
+    width: 70px;
+  }
 `;
 
 export { Container, PokemonImage };

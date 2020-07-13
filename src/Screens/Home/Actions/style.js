@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Image } from "../../../Components";
 
 const Container = styled.div`
   display: flex;
@@ -10,4 +11,10 @@ const Option = styled.button`
   margin-left: 9px;
 `;
 
-export { Container, Option };
+const Icon = styled(Image)`
+  @media (min-width: 768px) {
+    width: 26px;
+  }
+`;
+
+export { Container, Option, Icon };

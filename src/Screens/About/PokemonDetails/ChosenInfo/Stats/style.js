@@ -6,6 +6,9 @@ const Topic = styled.p`
   font-size: 9px;
   font-weight: bold;
   margin-bottom: 10px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const StatContainer = styled.div`
@@ -22,17 +25,26 @@ const StatName = styled.span`
   flex: 1;
   text-transform: capitalize;
   margin-right: 5px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const StatValue = styled.span`
   color: #747476;
   font-size: 8px;
   width: 10px;
+  @media (min-width: 768px) {
+    font-size: 12px;
+  }
 `;
 
 const StatBarContainer = styled.div`
   flex: 3;
   padding-left: 9px;
+  @media (min-width: 768px) {
+    flex: 7;
+  }
 `;
 
 const StatBar = styled.div`
@@ -48,12 +60,18 @@ const StatBar = styled.div`
 const StatMin = styled.span`
   color: #747476;
   font-size: 8px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const StatMax = styled.span`
   color: #747476;
   font-size: 8px;
   margin-left: 6px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const TotalStatContainer = styled.div`
@@ -65,12 +83,18 @@ const TotalStatContainer = styled.div`
 const TotalText = styled.span`
   font-size: 6.2px;
   margin-right: 17px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const StatTotal = styled.span`
   color: #747476;
   font-size: 8px;
   font-weight: bold;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const RangeText = styled.p`
@@ -79,12 +103,18 @@ const RangeText = styled.p`
   font-weight: 500;
   letter-spacing: 0.1px;
   margin: 9px 0 10px 0;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const EffectivenessText = styled.p`
   color: #747476;
   font-size: 8px;
   margin-bottom: 10px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const EffectivenessContainer = styled.div`
@@ -98,12 +128,37 @@ const EffectivenessContent = styled.div`
   margin: 0 5px 10px 0;
 `;
 
-const EffectivenessType = styled(Type)``;
+const EffectivenessType = styled(Type)`
+  @media (min-width: 768px) {
+    height: 25px;
+    width: 25px;
+    & > div {
+      width: 12.5px;
+    }
+  }
+`;
 
 const EffectivenessDamage = styled.div`
   font-size: 8px;
   text-align: center;
   padding-top: 5px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const MinMax = styled.span`
+  font-size: 6.2px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+`;
+
+const EffectivenessImage = styled.img`
+  width: 8px;
+  @media (min-width: 768px) {
+    width: 14px;
+  }
 `;
 
 export {
@@ -124,4 +179,6 @@ export {
   EffectivenessContent,
   EffectivenessType,
   EffectivenessDamage,
+  MinMax,
+  EffectivenessImage,
 };

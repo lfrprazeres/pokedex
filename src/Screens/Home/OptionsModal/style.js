@@ -17,11 +17,17 @@ const ModalContainer = styled.div`
 
 const Title = styled.h1`
   font-size: 14px;
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
 `;
 
 const Description = styled.p`
   font-size: 8px;
   margin-top: 2px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export { ModalContainer, Title, Description };

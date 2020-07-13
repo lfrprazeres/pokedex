@@ -38,6 +38,9 @@ const BackgroundName = styled.p`
     content: "";
     margin-right: -100%;
   }
+  @media (min-width: 768px) {
+    font-size: 5rem;
+  }
 `;
 
 const Header = styled.div`
@@ -50,10 +53,27 @@ const PokemonImage = styled(Image)`
   background-image: url(${require("../../assets/images/pokemonBackground.png")});
   background-size: cover;
   background-repeat: no-repeat;
+  @media (min-width: 768px) {
+    width: 100px;
+  }
 `;
 
 const PokemonInfoContainer = styled.div`
   padding: 6px 0 0 16px;
+  @media (min-width: 768px) {
+    & > p {
+      font-size: 20px;
+    }
+    & > div & > div {
+      padding: 5px 10px;
+      & > img {
+        width: 16px;
+      }
+      & > p {
+        font-size: 16px;
+      }
+    }
+  }
 `;
 
 export {

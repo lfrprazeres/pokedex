@@ -14,7 +14,7 @@ function PokemonCard(props) {
       onClick={() => history.push(`/about/${data.pokemon.name}`)}
     >
       <PokemonInfo pokemon={data.pokemon} />
-      <PokemonImage source={data.photo} size={59} />
+      <PokemonImage source={data.photo} size={"59px"} />
     </Container>
   );
 }

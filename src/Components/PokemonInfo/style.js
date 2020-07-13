@@ -5,6 +5,9 @@ const PokemonOrder = styled.p`
   color: rgba(23, 23, 27, 0.6);
   font-size: 7px;
   font-weight: bold;
+  @media (min-width: 768px) {
+    font-size: 10px;
+  }
 `;
 
 const PokemonName = styled.p`
@@ -14,6 +17,9 @@ const PokemonName = styled.p`
   margin-left: 1px;
   margin-top: -1px;
   text-transform: capitalize;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const PokemonTypes = styled.div`

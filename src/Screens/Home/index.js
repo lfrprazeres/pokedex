@@ -71,7 +71,6 @@ function Home(props) {
   }, [advancedFilter]);
 
   function loadMoreItems() {
-    console.log("load more");
     if (filter === "" && useInfiniteLoading) {
       catchMorePokemons(limit, offset);
     }

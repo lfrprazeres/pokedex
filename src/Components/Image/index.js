@@ -1,14 +1,16 @@
 import React from "react";
+import { Container } from "./style";
 
 export default function Image(props) {
-  const { source, alt, size, className, onClick } = props;
+  const { source, alt, size, className, onClick, style } = props;
   return (
-    <div
+    <Container
+      size={size}
       onClick={onClick}
-      style={{ width: size, display: "flex", alignItems: "center" }}
+      style={style}
       className={className}
     >
       <img src={source} alt={alt} style={{ width: "100%", zIndex: 2 }} />
-    </div>
+    </Container>
   );
 }

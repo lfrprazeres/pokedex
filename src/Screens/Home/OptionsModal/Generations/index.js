@@ -1,6 +1,12 @@
 import React from "react";
 import { Title, Description } from "../style";
-import { Content, Generation, GenerationText, Reset } from "./style";
+import {
+  Content,
+  Generation,
+  GenerationText,
+  Reset,
+  GenerationImage,
+} from "./style";
 import { Image } from "../../../../Components";
 import { connect } from "react-redux";
 import { changeGeneration } from "../../../../actions/pokedex";
@@ -24,10 +30,9 @@ function Generations(props) {
               setModalOption(false);
             }}
           >
-            <Image
-              style={{ marginTop: -10 }}
+            <GenerationImage
               source={require(`../../../../assets/images/icons/generations/${generation}.svg`)}
-              size={63}
+              size={"63px"}
             />
             <GenerationText active={generation === generationActive}>
               Generation {generation}

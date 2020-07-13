@@ -3,6 +3,10 @@ import { Image } from "../../../../../Components";
 
 const EvolutionsContainer = styled.div`
   padding-top: 3px;
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    width: 70%;
+  }
 `;
 
 const Content = styled.div`
@@ -21,11 +25,21 @@ const PokemonImageContainer = styled.div`
   height: 50px;
   justify-content: center;
   width: 50px;
+  @media (min-width: 768px) {
+    height: 100px;
+    width: 100px;
+    & > div {
+      width: 85px;
+    }
+  }
 `;
 
 const Id = styled.p`
   font-size: 6px;
   text-align: center;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const PokemonName = styled.p`
@@ -33,6 +47,9 @@ const PokemonName = styled.p`
   font-weight: bold;
   text-align: center;
   text-transform: capitalize;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const LevelContainer = styled.div`
@@ -40,10 +57,16 @@ const LevelContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const LevelImage = styled(Image)`
   margin-top: -17px;
+  @media (min-width: 768px) {
+    width: 50px;
+  }
 `;
 
 const Level = styled.p`
@@ -51,6 +74,9 @@ const Level = styled.p`
   font-size: 7px;
   font-weight: bold;
   letter-spacing: -0.3px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const To = styled.div`

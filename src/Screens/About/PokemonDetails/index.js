@@ -12,7 +12,7 @@ function PokemonDetails(props) {
     <Container>
       <BackIcon
         onClick={() => history.push("/")}
-        size={10}
+        size={"10px"}
         source={require("../../../assets/images/icons/back.svg")}
       />
       <SideMenu>

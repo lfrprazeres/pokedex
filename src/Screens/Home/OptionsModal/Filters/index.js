@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Title, Description } from "../style";
-import { Topic, Types, Type, Buttons, Reset, Apply } from "./style";
+import {
+  Topic,
+  Types,
+  Type,
+  Buttons,
+  Reset,
+  Apply,
+  FilterImage,
+} from "./style";
 import { connect } from "react-redux";
-import { Image } from "../../../../Components";
 import Slider from "@material-ui/core/Slider";
 import { withStyles } from "@material-ui/core/styles";
 import {
@@ -121,8 +128,8 @@ function Filters(props) {
                     });
                   }}
                 >
-                  <Image
-                    size={10}
+                  <FilterImage
+                    size={"10px"}
                     source={`${require(`../../../../assets/images/icons/pokemonTypes/${type}${
                       isActive ? "" : "Unselected"
                     }.svg`)}`}
@@ -158,8 +165,8 @@ function Filters(props) {
                     });
                   }}
                 >
-                  <Image
-                    size={10}
+                  <FilterImage
+                    size={"10px"}
                     source={`${require(`../../../../assets/images/icons/pokemonTypes/${weakness}${
                       isActive ? "" : "Unselected"
                     }.svg`)}`}
@@ -195,8 +202,8 @@ function Filters(props) {
                     });
                   }}
                 >
-                  <Image
-                    size={10}
+                  <FilterImage
+                    size={"10px"}
                     source={`${require(`../../../../assets/images/icons/advanced-filter/${
                       height.name
                     }${isActive ? "" : "Unselected"}.svg`)}`}
@@ -232,8 +239,8 @@ function Filters(props) {
                     });
                   }}
                 >
-                  <Image
-                    size={10}
+                  <FilterImage
+                    size={"10px"}
                     source={`${require(`../../../../assets/images/icons/advanced-filter/${
                       weight.name
                     }${isActive ? "" : "Unselected"}.svg`)}`}

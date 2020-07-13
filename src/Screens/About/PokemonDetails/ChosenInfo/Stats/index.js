@@ -20,6 +20,8 @@ import {
   EffectivenessContent,
   EffectivenessType,
   EffectivenessDamage,
+  MinMax,
+  EffectivenessImage,
 } from "./style";
 
 function Stats(props) {
@@ -28,10 +30,9 @@ function Stats(props) {
   function showDamage(type) {
     if (type === "half") {
       return (
-        <img
+        <EffectivenessImage
           src={require("../../../../../assets/images/icons/half.svg")}
-          alt="half"
-          style={{ width: 8 }}
+          alt="effectiveness"
         />
       );
     } else if (type === "2") {
@@ -60,8 +61,8 @@ function Stats(props) {
           <StatTotal>{getStatsTotal(pokemon.stats)}</StatTotal>
         </div>
         <div>
-          <span style={{ fontSize: 6.2 }}>Min </span>
-          <span style={{ fontSize: 6.2, marginLeft: 8 }}>Max </span>
+          <MinMax>Min </MinMax>
+          <MinMax style={{ marginLeft: 8 }}>Max </MinMax>
         </div>
       </TotalStatContainer>
       <RangeText>

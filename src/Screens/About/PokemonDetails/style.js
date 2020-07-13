@@ -9,6 +9,9 @@ const BackIcon = styled(Image)`
   position: absolute;
   left: 20px;
   top: 20px;
+  @media (min-width: 768px) {
+    width: 20px;
+  }
 `;
 
 const SideMenu = styled.nav`
@@ -20,7 +23,7 @@ const MenuChoice = styled.button`
   background-image: ${(props) =>
     props.highlight &&
     `url(${require("../../../assets/images/navbarHighlight.png")})`};
-  background-position-x: 10px;
+  background-position-x: 50%;
   background-position-y: 2px;
   background-repeat: no-repeat;
   background-size: 51px;
@@ -29,6 +32,9 @@ const MenuChoice = styled.button`
   flex: 1;
   opacity: ${(props) => (props.highlight ? "1" : "0.5")};
   transition: 0.2s ease opacity;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const Content = styled.div`

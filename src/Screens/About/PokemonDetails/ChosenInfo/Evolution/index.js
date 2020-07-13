@@ -38,7 +38,7 @@ function Evolution(props) {
                 <PokemonImageContainer>
                   <Image
                     source={`https://pokeres.bastionbot.org/images/pokemon/${evolution.fromId}.png`}
-                    size={34}
+                    size={"34px"}
                   />
                 </PokemonImageContainer>
                 <Id>{formatId(evolution.fromId)}</Id>
@@ -47,7 +47,7 @@ function Evolution(props) {
               <LevelContainer>
                 <LevelImage
                   source={require("../../../../../assets/images/levelUp.png")}
-                  size={15}
+                  size={"15px"}
                 />
                 <Level>(Level {evolution.level})</Level>
               </LevelContainer>
@@ -55,7 +55,7 @@ function Evolution(props) {
                 <PokemonImageContainer>
                   <Image
                     source={`https://pokeres.bastionbot.org/images/pokemon/${evolution.toId}.png`}
-                    size={30}
+                    size={"30px"}
                   />
                 </PokemonImageContainer>
                 <Id>{formatId(evolution.toId)}</Id>

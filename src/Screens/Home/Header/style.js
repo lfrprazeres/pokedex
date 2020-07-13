@@ -8,11 +8,17 @@ const Container = styled.div`
 const Title = styled.h3`
   font-size: 16px;
   letter-spacing: 1px;
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
 `;
 
 const Description = styled.p`
   font-size: 8px;
   margin-top: 5px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export { Container, Title, Description };
