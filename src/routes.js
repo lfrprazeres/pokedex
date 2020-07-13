@@ -1,28 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home, About } from "./Screens";
 import { connect } from "react-redux";
-import { gottaCatchThemAll } from "./actions/pokedex";
-import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert from "@material-ui/lab/Alert";
 import { closeSnackbar } from "./actions/app";
 
 function Routes(props) {
-  const {
-    limit,
-    offset,
-    pokemons,
-    gottaCatchThemAll,
-    useInfiniteLoading,
-    snackbar,
-    closeSnackbar,
-  } = props;
-
-  useEffect(() => {
-    if (!pokemons || (pokemons.length === 0 && useInfiniteLoading))
-      gottaCatchThemAll(limit, offset);
-  }, [gottaCatchThemAll, limit, offset, pokemons, useInfiniteLoading]);
+  const { snackbar, closeSnackbar } = props;
 
   function handleCloseSnackbar() {
     closeSnackbar();
@@ -55,8 +40,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  gottaCatchThemAll: (limit, offset) =>
-    dispatch(gottaCatchThemAll(limit, offset)),
   closeSnackbar: () => dispatch(closeSnackbar()),
 });
 

@@ -19,6 +19,7 @@ function Home(props) {
     sort,
     useInfiniteLoading,
     advancedFilter,
+    gottaCatchThemAll,
   } = props;
   const [pokemonList, setPokemonList] = useState(null);
   const [modalOption, setModalOption] = useState(false);
@@ -31,6 +32,11 @@ function Home(props) {
       setPokemonList(pokemons);
     }
   }, [filter, pokemons]);
+
+  useEffect(() => {
+    if (!pokemons || (pokemons.length === 0 && useInfiniteLoading))
+      gottaCatchThemAll(limit, offset);
+  }, [gottaCatchThemAll, limit, offset, pokemons, useInfiniteLoading]);
 
   useEffect(() => {
     if (pokemonList) {
@@ -120,6 +126,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   catchMorePokemons: (limit, offset) =>
+    dispatch(gottaCatchThemAll(limit, offset)),
+  gottaCatchThemAll: (limit, offset) =>
     dispatch(gottaCatchThemAll(limit, offset)),
 });
 

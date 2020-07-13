@@ -26,6 +26,8 @@ function About(props) {
       );
       if (!ourPokemon) getPokemonInTheApi();
       if (ourPokemon) setPokemon(ourPokemon);
+    } else {
+      getPokemonInTheApi();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pokemonName, pokemons]);
