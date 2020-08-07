@@ -122,6 +122,9 @@ const EffectivenessContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   width: 102%;
+  @media (min-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 const EffectivenessContent = styled.div`

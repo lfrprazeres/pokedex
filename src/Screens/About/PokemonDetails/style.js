@@ -6,11 +6,15 @@ const Container = styled.div`
 `;
 
 const BackIcon = styled(Image)`
+  cursor: pointer;
   position: absolute;
   left: 20px;
   top: 20px;
   @media (min-width: 768px) {
     width: 20px;
+  }
+  > img {
+    cursor: pointer;
   }
 `;
 

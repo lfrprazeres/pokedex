@@ -72,7 +72,7 @@ function Stats(props) {
       </RangeText>
       <Topic color={screenColor}>Type Defenses</Topic>
       <EffectivenessText>
-        The effectiveness of each type on{" "}
+        The effectiveness of each type on
         <span style={{ textTransform: "capitalize" }}>{pokemon.name}</span>
       </EffectivenessText>
       <EffectivenessContainer>
